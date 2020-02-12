@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Base{% endblock %}</title>
@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/my.css') }}">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
 
 </head>
 <body>
@@ -32,7 +33,18 @@
                 <ul class="nav navbar-nav navbar-right">
                   <li class="active"><a href="/">Главная</a></li>
                   <li><a href="#">Фильмы</a></li>
-                  <button><li><a href="/add-film">Добавить фильм</a></li></button>
+                  {% if auth_user %}
+                  <li><a href="{{ url_for('add_film_app.add-film') }}">Добавить фильм</a></li>
+                  {% endif %}
+                  {% if not auth_user %}
+                    <li><a href="{{ url_for('login') }}">Вход на сайт</a></li>
+                  {% endif %}
+                  {% if auth_user %}
+                  <li><a href="{{ url_for('logout') }}">Выход</a></li>
+                  {% endif %}
+                  {% if not auth_user %}
+                  <button><li><a href="{{ url_for('registration_app.registration') }}">Регистрация</a></li></button>
+                  {% endif %}
 
                   <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
                 </ul>

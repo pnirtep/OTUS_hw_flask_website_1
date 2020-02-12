@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+Кинопортал - главная
+{% endblock %}
+
+
+
+
+ {% block body %}
+
+    <div class="container main">
+        <div class="row">
+            <div class="col-lg-12 blog-title">
+            <h1>Новинки в мире кино</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 film-post">
+                
+                <img src="static/assets/home_alone1.jpg" alt="Один дома">
+                <h3>Один дома</h3>
+                <hr>
+                <p>В центре внимания окажется на первый взгляд обычная семья, они по традиции встречаются все в одном доме для того, чтобы встретить рождество ...</p>
+                <button class="post-button"><a href="/films/home-alone">Подробнее</a></button>
+                <p class="category">Комедия</p>
+
+            </div>
+            <div class="col-lg-3 film-post">
+                <img src="static/assets/knifes.jpg" alt="Достать ножи">
+                <h3>Достать ножи</h3>
+                <hr>
+                <p>В центре внимания окажется на первый взгляд обычная семья, они по традиции встречаются все в одном доме для того, чтобы встретить рождество ...</p>
+                <button class="post-button"><a href="/films/knifes-out">Подробнее</a></button>
+                <p class="category">Комедия</p>
+            </div>
+            <div class="col-lg-3 film-post">
+                <img src="static/assets/fordferrari.jpg" alt="Форд против Феррари">
+                <h3>Один дома</h3>
+                <hr>
+                <p>В центре внимания окажется на первый взгляд обычная семья, они по традиции встречаются все в одном доме для того, чтобы встретить рождество ...</p>
+                <button class="post-button"><a href="/">Подробнее</a></button>
+                <p class="category">Комедия</p>
+            </div>
+            <div class="col-lg-3 film-post">
+                <img src="static/assets/robot.jpg" alt="Мистер робот">
+                <h3>Мистер робот</h3>
+                <hr>
+                <p>В центре внимания окажется на первый взгляд обычная семья, они по традиции встречаются все в одном доме для того, чтобы встретить рождество ...</p>
+                <button class="post-button"><a href="/">Подробнее</a></button>
+                <p class="category">Комедия</p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
