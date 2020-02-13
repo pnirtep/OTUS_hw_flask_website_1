@@ -17,7 +17,7 @@
          <span>{{ post.id }}</span>
          <hr>
          <p>{{ post.text }}</p>
-         <button class="post-button"><a href="/films/home-alone">Подробнее</a></button>
+         <button class="post-button"><a href="{{ url_for('film_app.film_view', post_id=post['id']) }}">Подробнее</a></button>
          <p class="author">Автор поста:
             <span>{{ post.user_email }}</span>
          </p>

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+Добавить фильм
+{% endblock %}
+
+ {% block body %}
+
+    <div class="container main">
+
+    	<div class="row post-head">
+  			<div class="col-sm-6">
+  				<img src="/static/assets/home_alone1-1.jpg" alt="">
+  			</div>
+  			<div class="col-sm-6 post-head-title">
+  				<h2>{{ post.title }}</h2>
+  				<hr>
+	  				<h4>
+	  					<p><span><b>Автор публикации: </span></b><span>{{ post.user_email }}</span></p>
+	  					<p><span><b>Дата публикации: </span></b><span>{{ post.creates_date }}</span></p>
+	  					<br>
+	  					<button><a href="https://yandex.ru/search/?text=один%20дома%20смотреть%20онлайн">Искать в Яндексе</a></button>
+	  				</h4>
+
+  			</div>
+
+		</div>
+		<div class="row post-body">
+			<div class="col-lg-12">
+				<p>
+					{{ post.text }}
+				</p>
+			</div>
+		</div>
+
+    </div>
+{% endblock %}
