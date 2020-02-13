@@ -12,16 +12,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 film-post">
-
                 {% for post in posts %}
                     <div class="col-lg-3 film-post">
-                    <img src="static/assets/home_alone1.jpg" alt="Один дома">
                     <h3>{{ post.title }}</h3>
-                    <span>{{ post.id }}</span>
                     <hr>
                     <p>{{ post.text }}</p>
-                    <button class="post-button"><a href="{{ url_for('film_app.films', id=post.id) }}">Подробнее</a></button>
+                    <button class="post-button"><a href="{{ url_for('film_app.film_view', post_id=post.id) }}">Подробнее</a></button>
                     <p class="author">Автор поста:
                     <span>{{ post.user_email }}</span>
                     </p>
