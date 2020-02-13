@@ -31,7 +31,7 @@ def load_user(user_id):
 @app.route('/')
 def home():
     auth_user = current_user.is_authenticated
-    posts = session.query(Post).order_by(Post.id.desc())
+    posts = session.query(Post).order_by(Post.id.desc())[0:4]
     return render_template('index.html', auth_user=auth_user, posts=posts)
 
 

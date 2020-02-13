@@ -29,7 +29,8 @@ def form_data():
     r = request.form
     film_title = r.get('film_title')
     film_text = r.get('film_text')
-    create_post(film_title, film_text, current_user.email)
+    create_post(film_title, film_text, current_user.username)
+    print(current_user.username)
     return redirect('/')
 
 

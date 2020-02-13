@@ -32,7 +32,7 @@
                         <label for="film_text">Описание фильма:</label>
                         <textarea class="form-control" rows="5" id="comment" name="film_text" placeholder="Добавьте отписание фильма"></textarea>
                       </div>
-
+                    <input type="hidden" class="form-control" id="post_username" name="post_username" value={{ current_user.username }}>
                     </div>
                     <div class="form-group">
                     <button type="submit" class="btn btn-primary">Отправить</button>
