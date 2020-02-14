@@ -12,12 +12,20 @@ film_app = Blueprint('film_app', __name__)
 
 @film_app.route('/', endpoint='films')
 def page_view():
+    """
+    Маршрут на страницу со всеми фильмами, которык выводятся в обратном порядке по id публикации
+
+    """
     auth_user = current_user.is_authenticated
     posts = session.query(Post).order_by(Post.id.desc())
     return render_template('film_page.html', auth_user = auth_user, posts=posts)
 
 @film_app.route('/<int:post_id>', endpoint='film_view')
 def film_view(post_id):
+    """
+    Маршрут на страницу с определенным фильмом, который выведен на общей странице со всеми фильмами.
+
+    """
     auth_user = current_user.is_authenticated
     post = session.query(Post).filter_by(id=post_id).first()
     return render_template('film-template.html', auth_user = auth_user, post_id=id, post=post)

@@ -11,6 +11,9 @@
 </div>
 <div class="row post-add-form ">
     <div class="col-lg-6 col-lg-offset-3">
+        {% if error %}
+        <p class=error><strong>Ошибка:</strong> {{ error }}</p>
+        {% endif %}
         <form method="POST" role="form">
             <div class="form-group">
                 <label for="username">Ваше имя:</label>

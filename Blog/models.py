@@ -20,6 +20,15 @@ tags_posts_table = Table(
 
 
 class User(Base, UserMixin):
+    """
+
+    Модель пользователя, которая содержит в себе id, имя пользвоателя, логин, еmail и пароль
+    Авторизация на сайте осуществляется через предварительную регистрацию пользователя в базе данных с уникальным логином.
+    Каждый пользователь может добавлять на сайт публикации, который связаны с моделью Post
+
+    """
+
+
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
     username = Column(String, nullable=False)
@@ -37,6 +46,15 @@ class User(Base, UserMixin):
 
 
 class Post(Base):
+    """
+
+        Модель Post создает обеъекты Фильмов в БД, которые связаны с пользователями
+        Имеет поля - id, дата добавления, название, описание, дата изменения существующей публикацц
+        и параметр Опубликовано или нет, чтобы можно было осуществлять удаление не полной, а путем снятия с публикации
+        и сохранением в БД. А на страницах выводить только опубликованные посты.
+
+    """
+
     __tablename__ = 'posts'
     id = Column(Integer, primary_key=True)
     created_date = Column(DateTime, default=datetime.datetime.utcnow)
@@ -54,6 +72,13 @@ class Post(Base):
                                                                                self.user_email, self.on_update)
 
 class Tag(Base):
+    """
+
+        Модель тега для постов ( Жанр фильма ).
+        У каждого фильма может быть несколько тегов
+
+    """
+
     __tablename__ = 'tags'
     id = Column(Integer, primary_key=True)
     tag_name = Column(String, nullable=False)
